@@ -1,6 +1,7 @@
 const
   express = require('express'),
   app = express(),
+  cors = require('cors'),
   bodyParser = require('body-parser'),
   logger = require('morgan'),
   mongoose = require('mongoose'),
@@ -12,6 +13,7 @@ mongoose.connect(mongoURL, (err) => {
   console.log(err || "connected to mongodb...")
 })
 
+app.use(cors())
 app.use(logger('dev'))
 app.use(bodyParser.json())
 
